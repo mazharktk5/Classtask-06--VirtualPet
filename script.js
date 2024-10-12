@@ -9,7 +9,7 @@ var pet = {
     feed: function () {
         if(this.hunger > 20){
             this.hunger -= 20;
-            alert(`${this.name} had been fed his hunger is now is now ${this.hunger}.`);
+            alert(`${this.name} had been fed his hunger is now ${this.hunger}.`);
         }else{
             alert(`${this.name} is already full of food.`);
             
@@ -43,7 +43,7 @@ var pet = {
 };
 
 function getInfo(){
-    var action = prompt("Enter one feed,play,agePet");
+    var action = prompt("What do you want (feed,play,agePet)");
     if(action === "feed"){
         pet.feed();
     }else if(action === "play"){
