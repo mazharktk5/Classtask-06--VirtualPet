@@ -1,14 +1,31 @@
+
+var petName = prompt("Whats your pet name?")
+var petType = prompt("Whats your pet type?")
+var petAge = parseInt(prompt("How old is your pet?"))
+var petHappiness =parseInt( prompt("How happy is your pet?"))
+var petHunger = parseInt (prompt("How hungry is your pet?"))
+
+
+
+
+
+
+
+
 var pet = {
-    name: "poppy",
-    type: "cat",
-    age: 4,
-    happiness:50,
-    hunger: 30, 
+    name: petName,
+    type: petType,
+    age: petAge,
+    happiness:petHappiness,
+    hunger: petHunger, 
     
     
     feed: function () {
         if(this.hunger > 20){
             this.hunger -= 20;
+            if(this.hunger < 0){
+                this.hunger = 0;
+            }
             alert(`${this.name} had been fed his hunger is now ${this.hunger}.`);
         }else{
             alert(`${this.name} is already full of food.`);
@@ -19,6 +36,9 @@ var pet = {
     play: function () {
         if(this.happiness < 100){
             this.happiness += 20;
+            if(this.happiness > 100){
+                this.happiness = 100;
+            }
             alert(`${this.name} had fun playing! Happiness level is now ${this.happiness}.`);
         }else{
             
@@ -43,16 +63,19 @@ var pet = {
 };
 
 function getInfo(){
-    var action = prompt("What do you want (feed,play,agePet)");
-    if(action === "feed"){
+    var action = prompt("What do you want\n1.feed\n2.play\n3.agePet\n4.quit\n");
+    if(action === "1"){
         pet.feed();
-    }else if(action === "play"){
+    }else if(action === "2"){
         pet.play();
-    } else if(action === "agePet"){
+    } else if(action === "3"){
         pet.agePet();
-    } else{
-        alert("Invalid action.");
+    }else  if(action === "4"){
+        alert("Thanks for caring your pet")
+    }else{
+        alert("invalid action")
     }
+   
 
 }
 
